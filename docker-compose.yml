@@ -1,0 +1,18 @@
+version: "3"
+services:
+  frontend_1:
+    build: ./frontend_1
+    container_name: frontend_1
+  frontend_2:
+    build: ./frontend_2
+    container_name: frontend_2
+  nginx_reverse_proxy:
+    build: ./nginx-reverse-proxy
+    container_name: nginx_proxy
+    ports:
+      - "8080:80"
+  nginx_load_balancer:
+    build: ./nginx-load-balancer
+    container_name: nginx_load
+    ports:
+      - "8081:80"
